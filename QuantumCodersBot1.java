@@ -92,7 +92,7 @@ public class QuantumCodersBot1 extends Bot {
         }
     }
 
-    // A custom event occurred
+    // A custom event occurred that was previously mentioned
     @Override
     public void onCustomEvent(CustomEvent e) {
         // Check if our custom event "trigger-hit" went off
