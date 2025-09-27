@@ -21,12 +21,14 @@ Our bot aims to excel in the following areas:
 
 Functionality: Runs smoothly and participates in battles without issues.
 Creativity & Strategy: Implements unique tactics for movement, targeting, and energy management.
-Code Quality: Well-structured, readable code with clear comments and this comprehensive README.
+Code Quality: Well-structured, readable code with clear comments and a comprehensive README.
 Originality: Custom-built with no reliance on unmodified example bots.
-Battle Score: Optimized for competitive performance in battles.
+Battle Score: Optimised for competitive performance in battles.
 
 Resources
 
 Robocode Tank Royale GitHub: https://github.com/robocode-dev/tank-royale
+
 Documentation: https://robocode-dev.github.io/tank-royale/articles/intro.html
+
 Tutorial: My First Bot
