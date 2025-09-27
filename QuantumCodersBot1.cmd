@@ -1,0 +1,1 @@
+java -cp ../lib/* QuantumCodersBot1.java >nul

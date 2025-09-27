@@ -1,0 +1,10 @@
+{
+  "name": "QuantumCodersBot1",
+  "version": "1.0",
+  "authors": [ "Donell", "Pano", "Idris" ],
+  "description": "My teams first bot attempt.",
+  "homepage": "",
+  "countryCodes": [ "RSA","+27" ],
+  "platform": "JVM",
+  "programmingLang": "Java"
+}
