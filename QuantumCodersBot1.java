@@ -1,11 +1,15 @@
 import dev.robocode.tankroyale.botapi.*;
 import dev.robocode.tankroyale.botapi.events.*;
 import dev.robocode.tankroyale.botapi.graphics.Color;
+import javax.sound.sampled.*;
+import java.io.File;
+import java.io.IOException;
 
 public class QuantumCodersBot1 extends Bot {
 
     boolean peek; // Don't turn if there's a bot there
     double moveAmount; // How much to move
+    int trigger; // Keeps track of when to move
 
     // The main method starts our bot
     public static void main(String[] args) {
@@ -23,9 +27,18 @@ public class QuantumCodersBot1 extends Bot {
         // Set colors
         setBodyColor(Color.BLACK);
         setTurretColor(Color.BLACK);
-        setRadarColor(Color.ORANGE);
-        setBulletColor(Color.CYAN);
+        setRadarColor(Color.DEEP_PINK);
+        setBulletColor(Color.YELLOW);
         setScanColor(Color.CYAN);
+
+        trigger = 80;
+
+        // Add a custom event named "trigger-hit"
+        addCustomEvent(new Condition("trigger-hit") {
+            public boolean test() {
+                return getEnergy() <= trigger;
+            }
+        });
 
         // Initialize moveAmount to the maximum possible for the arena
         moveAmount = Math.max(getArenaWidth(), getArenaHeight());
@@ -78,4 +91,22 @@ public class QuantumCodersBot1 extends Bot {
             rescan();
         }
     }
-}
+
+    // A custom event occurred
+    @Override
+    public void onCustomEvent(CustomEvent e) {
+        // Check if our custom event "trigger-hit" went off
+        if (e.getCondition().getName().equals("trigger-hit")) {
+            // Adjust the trigger value, or else the event will fire again and again and again...
+            trigger -= 20;
+
+            // Print out energy level
+            System.out.println("Ouch, down to " + (int) (getEnergy() + .5) + " energy.");
+
+            // Move around a bit
+            turnRight(65);
+            forward(100);
+        }
+    }
+    
+}    
